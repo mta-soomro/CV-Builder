@@ -1,0 +1,454 @@
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* Basic reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    color: #111827;
+    line-height: 1.6;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+nav .max-w-7xl {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+nav button {
+    background-color: #fef2f2;
+    color: #dc2626;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+nav button:hover {
+    background-color: #fee2e2;
+}
+
+/* Main content layout */
+main {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Form section styles */
+.form-section {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.form-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-section h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #374151;
+    border-bottom: 1px solid #d1d5db;
+    padding-bottom: 0.5rem;
+}
+
+.form-section .space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+.form-section input,
+.form-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-section textarea {
+    height: 8rem;
+    resize: vertical;
+}
+
+.form-section .grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .form-section .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-section button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-section button.bg-blue-600 {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.form-section button.bg-blue-600:hover {
+    background-color: #1d4ed8;
+}
+
+.form-section button.bg-gray-100 {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.form-section button.bg-gray-100:hover {
+    background-color: #e5e7eb;
+}
+
+.form-section button.bg-green-600 {
+    background-color: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.form-section button.bg-green-600:hover {
+    background-color: #15803d;
+}
+
+.form-section button.border-2 {
+    border: 2px solid #2563eb;
+    background-color: transparent;
+    color: #2563eb;
+}
+
+.form-section button.border-2:hover {
+    background-color: #eff6ff;
+}
+
+.form-section .flex {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.form-section .flex-col {
+    flex-direction: column;
+}
+
+.form-section .gap-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.form-section .gap-4 > * + * {
+    margin-top: 1rem;
+}
+
+.form-section .mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.form-section .mt-6 {
+    margin-top: 1.5rem;
+}
+
+.form-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+/* Education and Experience item styles */
+.edu-item,
+.exp-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.edu-item input,
+.exp-item input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+}
+
+.edu-item button,
+.exp-item button {
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.edu-item button:hover,
+.exp-item button:hover {
+    background-color: #b91c1c;
+}
+
+/* Preview wrapper */
+.preview-wrapper {
+    overflow-x: hidden;
+}
+
+/* CV Preview styles */
+#cv-preview {
+    background-color: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2.5rem 2rem;
+    min-height: 842px;
+    border-top: 8px solid #2563eb;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 210mm;
+}
+
+#cv-preview .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 4px solid #1f2937;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#cv-preview .name-section {
+    width: 66.666667%;
+}
+
+#cv-preview .name-section h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    #cv-preview .name-section h1 {
+        font-size: 3rem;
+    }
+}
+
+#cv-preview .job-title {
+    color: #2563eb;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    margin-top: 0.5rem;
+}
+
+#cv-preview .contact-section {
+    width: 33.333333%;
+    text-align: right;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #6b7280;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    #cv-preview .contact-section {
+        margin-top: 0;
+    }
+}
+
+#cv-preview .contact-section p {
+    margin-bottom: 0.25rem;
+}
+
+#cv-preview h3 {
+    color: #1e40af;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #f1f5f9;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.25rem;
+}
+
+#cv-preview .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    #cv-preview .main-content {
+        grid-template-columns: 2fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+#cv-preview .left-column,
+#cv-preview .right-column {
+    width: 100%;
+}
+
+#cv-preview .skills-container {
+    margin-bottom: 1.5rem;
+}
+
+#cv-preview .skill-pill {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0.125rem;
+    display: inline-block;
+    border: 1px solid #e2e8f0;
+}
+
+#cv-preview p {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+#cv-preview .right-column p {
+    margin-bottom: 1.5rem;
+}
+
+/* No print class */
+.no-print {
+    display: block;
+}
+
+@media print {
+    .no-print,
+    nav,
+    .form-section,
+    button {
+        display: none !important;
+    }
+    body,
+    html {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    main {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .preview-wrapper {
+        width: 100% !important;
+    }
+    #cv-preview {
+        position: static !important;
+        width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 2.5rem !important;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    nav .max-w-7xl {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    main {
+        grid-template-columns: 1fr;
+        padding: 0 1rem 2rem;
+    }
+    .form-section {
+        padding: 1rem;
+    }
+    #cv-preview {
+        padding: 1.25rem !important;
+        min-height: auto;
+    }
+    #cv-preview .name-section h1 {
+        font-size: 2rem !important;
+    }
+    #cv-preview .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #cv-preview .contact-section {
+        text-align: left;
+        margin-top: 1rem;
+    }
+    #cv-preview .main-content {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV Builder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="no-print">
+        <div class="max-w-7xl">
+            <h1>CV Builder Pro</h1>
+            <button onclick="location.reload()">🗑️ RESET ALL</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="no-print">
+            <div id="step-1" class="form-section active">
+                <h2>👤 Personal Details</h2>
+                <div class="space-y-4">
+                    <input type="text" id="fullName" oninput="updatePreview()" placeholder="Full Name">
+                    <input type="text" id="jobTitle" oninput="updatePreview()" placeholder="Professional Title (e.g. Software Engineer)">
+                    <div class="grid grid-cols-2">
+                        <input type="email" id="email" oninput="updatePreview()" placeholder="Email Address">
+                        <input type="text" id="location" oninput="updatePreview()" placeholder="Location (City, Country)">
+                    </div>
+                    <textarea id="about" oninput="updatePreview()" placeholder="About Me / Profile Summary..."></textarea>
+                </div>
+                <button onclick="changeStep(2)" class="bg-blue-600">Next: History →</button>
+            </div>
+
+            <div id="step-2" class="form-section">
+                <h2>🎓 History</h2>
+                <div class="mb-6">
+                    <label>Education</label>
+                    <div id="edu-list"></div>
+                    <button onclick="addEdu()">+ Add Education</button>
+                </div>
+                <div class="mb-6">
+                    <label>Work Experience</label>
+                    <div id="exp-list"></div>
+                    <button onclick="addExp()">+ Add Work Experience</button>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="changeStep(1)" class="bg-gray-100">Back</button>
+                    <button onclick="changeStep(3)" class="bg-blue-600">Next: Skills & Extras →</button>
+                </div>
+            </div>
+
+            <div id="step-3" class="form-section">
+                <h2>🌐 Skills & References</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label>Skills (Separated by commas)</label>
+                        <input type="text" id="skills" oninput="updatePreview()" placeholder="HTML, CSS, JavaScript">
+                    </div>
+                    <div>
+                        <label>Languages</label>
+                        <input type="text" id="langs" oninput="updatePreview()" placeholder="English (Fluent), Urdu (Native)">
+                    </div>
+                    <div>
+                        <label>References</label>
+                        <textarea id="refs" oninput="updatePreview()" placeholder="Reference info..."></textarea>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 mt-6">
+                    <div class="flex gap-3">
+                        <button onclick="changeStep(2)" class="bg-gray-100">Back</button>
+                        <button onclick="downloadPDF()" class="bg-green-600">📥 DOWNLOAD PDF</button>
+                    </div>
+                    <button onclick="window.print()" class="border-2">🖨️ PRINT DIRECTLY</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-wrapper">
+            <div id="cv-preview"></div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
