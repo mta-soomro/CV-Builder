@@ -6,6 +6,7 @@
     <title>Professional CV Builder</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="preview.css">
 </head>
 <body>
     <nav class="no-print">
@@ -17,7 +18,7 @@
 
     <main>
         <div class="no-print">
-            <div id="step-1" class="form-section active">
+            <div id="step-1" class="form-section">
                 <h2>👤 Personal Details</h2>
                 <div class="space-y-4">
                     <input type="text" id="fullName" oninput="updatePreview()" placeholder="Full Name">
@@ -28,7 +29,6 @@
                     </div>
                     <textarea id="about" oninput="updatePreview()" placeholder="About Me / Profile Summary..."></textarea>
                 </div>
-                <button onclick="changeStep(2)" class="bg-blue-600">Next: History →</button>
             </div>
 
             <div id="step-2" class="form-section">
@@ -42,10 +42,6 @@
                     <label>Work Experience</label>
                     <div id="exp-list"></div>
                     <button onclick="addExp()">+ Add Work Experience</button>
-                </div>
-                <div class="flex gap-4">
-                    <button onclick="changeStep(1)" class="bg-gray-100">Back</button>
-                    <button onclick="changeStep(3)" class="bg-blue-600">Next: Skills & Extras →</button>
                 </div>
             </div>
 
