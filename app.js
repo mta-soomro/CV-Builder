@@ -1,12 +1,3 @@
-function changeStep(step) {
-    var allSections = document.querySelectorAll('.form-section');
-    for (var i = 0; i < allSections.length; i++) {
-        allSections[i].classList.remove('active');
-    }
-    document.getElementById('step-' + step).classList.add('active');
-    window.scrollTo(0, 0);
-}
-
 function addEdu() {
     var div = document.createElement('div');
     div.className = "edu-item";
@@ -116,6 +107,11 @@ function downloadPDF() {
         name = "My_CV";
     }
 
+    var noPrintElements = document.querySelectorAll('.no-print');
+    noPrintElements.forEach(function(el) {
+        el.style.display = 'none';
+    });
+
     var opt = {
         margin: 0.2,
         filename: name + '_CV.pdf',
@@ -124,7 +120,11 @@ function downloadPDF() {
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    html2pdf().set(opt).from(element).save();
+    html2pdf().set(opt).from(element).save().then(function() {
+        noPrintElements.forEach(function(el) {
+            el.style.display = 'block';
+        });
+    });
 }
 
 window.onload = function() {
